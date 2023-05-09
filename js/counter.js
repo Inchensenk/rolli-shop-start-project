@@ -1,35 +1,40 @@
 'use strict';
 
-/*Находим элементы для взаимодействия */
-
-//Находим кнопку первую попавшуюся кнопку минус в документе html по data атрибуту
-const btnMinus = document.querySelector('[data-action="minus"]');
-
-//Находим кнопку первую попавшуюся кнопку плюс в документе html по data атрибуту
-const btnPlus = document.querySelector('[data-action="plus"]');
-
-//Находим счетчик позиции
-const counter = document.querySelector('[data-counter]');
-
-
-
-/*Отслеживаем клик по кнопкам*/
-
-//Уменьшаем счетчик по нажатию на кнопку -
-btnMinus.addEventListener('click', function()
+//Добавляем прослушку на всем окне
+window.addEventListener('click', function(event)
 {
-    //Проверка счетчика на значение болшее чем 1
-    if(parseInt(counter.innerText) > 1 )
+    console.log('click window');
+/*
+    //получам элемент по которому кликнули
+    console.log(event.target);
+
+    //получам элемент помеченный data-action, то есть либо плюс либо минус
+    console.log(event.target.dataset.action);
+*/  
+
+    //Если нажатая кнопка '-'
+    if(event.target.dataset.action === 'plus')
     {
-        //уменьшаем текст в счетчике на 1
-        counter.innerText = --counter.innerText;
+        //находим ближайшего родителя с классом .counter-wrapper (обертку счетчика)
+        const counterWrapper = event.target.closest('.counter-wrapper');
+
+        //находим в родителе элемент со счетчиком
+        const counter = counterWrapper.querySelector('[data-counter]');
+
+        ++counter.innerText;
+    }
+
+    //Если нажатая кнопка '+'
+    if(event.target.dataset.action === 'minus')
+    {
+        const counterWrapper = event.target.closest('.counter-wrapper');
+
+        const counter = counterWrapper.querySelector('[data-counter]');
+
+        if(parseInt(counter.innerText)>1)
+        {
+            --counter.innerText;
+        }
     }
     
 });
-
-//Увеличиваем счетчик по нажатию на кнопку +
-btnPlus.addEventListener('click', function()
-{
-    counter.innerText = ++counter.innerText;
-});
-
