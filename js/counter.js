@@ -33,11 +33,14 @@ window.addEventListener('click', function(event)
         //Иначе, если клик совершен по кнопке '-' которая находится в корзине
         else if (event.target.closest('.cart-wrapper'))
         {
-            //И колличество товара равно 1, (то при нажатии на - мы можем его удалить)
+            //И колличество товара равно 1, (то при нажатии на "-" мы можем его удалить)
             if(parseInt(counter.innerText)===1)
             {
                 //Удаляем товар из корзины
                 event.target.closest('.cart-item').remove();
+
+                //Отображение статуса корзины(пустая либо полная)
+                toggleCartStatus();
             }
         }
 

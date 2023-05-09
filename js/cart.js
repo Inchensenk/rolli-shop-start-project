@@ -8,6 +8,8 @@ window.addEventListener('click', function(event)
     //Проверяем что клиик был совершен по кнопке "добавить а корзину"
     if(event.target.hasAttribute('data-cart'))// так как метод hasAttribute предназначен для поиска атрибута, то квадратные скобки не нужны
     {
+
+
         //Находим катрочку с товаром внутри которой был совершен клик
         const card = event.target.closest('.card');
 
@@ -71,11 +73,14 @@ window.addEventListener('click', function(event)
     
             //отобразить товар в корзине
             cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);//insertAdjacentElement вставляет кусок html внутрь элемента
+
         }
 
         //сбрасываем счетчик на странице после добавления товара в корзину
         card.querySelector('[data-counter]').innerText = '1';
 
+        //Отображение статуса корзины(пустая либо полная)
+        toggleCartStatus();
     }
 
     
