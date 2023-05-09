@@ -16,8 +16,6 @@ window.addEventListener('click', function(event)
         counter = counterWrapper.querySelector('[data-counter]');
     }
 
-
-
     //Если нажатая кнопка '-'
     if(event.target.dataset.action === 'plus')
     {
