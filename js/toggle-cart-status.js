@@ -2,21 +2,25 @@
 
 function toggleCartStatus ()
 {
-    console.log('toggleCartStatus');
-
     //Находим корзину
     const cartWrapper = document.querySelector('.cart-wrapper');
 
-    //Проверяем колличесво элементов внутри корзины
-    console.log(cartWrapper.children.length);
+    const cartEmptyBadge = document.querySelector('[data-cart-empty]');
 
+    const orderForm = document.querySelector('#order-form');
+
+    //Проверяем колличесво элементов внутри корзины
     if(cartWrapper.children.length > 0)
     {
-        console.log('FULL')
+        console.log('FULL');
+        cartEmptyBadge.classList.add('none');
+        orderForm.classList.remove('none');
     }
 
     else
     {
-        console.log('EMPTY')
+        console.log('EMPTY');
+        cartEmptyBadge.classList.remove('none');
+        orderForm.classList.add('none');
     }
 }
