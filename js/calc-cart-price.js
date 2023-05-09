@@ -2,22 +2,24 @@
 
 function calcCartPrice()
 {
-    //Находим все элементы в корзине
-    const cartItems = document.querySelectorAll('.cart-item');
 
-    let totalPrice = 0;
+    const cartWrapper = document.querySelector('.cart-wrapper');
+    const priceElements = cartWrapper.querySelectorAll('.price__currency');
+    const totalPriceEl = document.querySelector('.total-price');
 
-    cartItems.forEach(function(item)
+
+    let priceTotal = 0;
+
+    //Обходим все блоки с ценами в корзине
+    priceElements.forEach(function(item)
     {
-        //Колличество позиции в корзине
-        const amountEl = item.querySelector('[data-counter]');
-        //Стоимость позиции
-        const priceEl = item.querySelector('.price__currency');
+        //Колличество товара
+        const amountEl = item.closest('.cart-item').querySelector('[data-counter]');
         //Стоимость позиции товара с учетом его колличества в корзине
-        const currentPrice = parseInt(amountEl.innerText) * parseInt(priceEl.innerText);
+        priceTotal += parseInt(item.innerText) * parseInt(amountEl.innerText);
 
-        totalPrice +=currentPrice;
     });
-
-    console.log(totalPrice);
+    
+    //Отображаем цену на странице
+    totalPriceEl.innerText = priceTotal;
 }
