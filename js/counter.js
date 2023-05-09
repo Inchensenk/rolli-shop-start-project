@@ -41,9 +41,22 @@ window.addEventListener('click', function(event)
 
                 //Отображение статуса корзины(пустая либо полная)
                 toggleCartStatus();
+
+                //Расчет общей стоимости товаров в корзине
+                calcCartPrice();
             }
         }
 
+    }
+
+    //Проверка на клик по кнопке + или - внутри корзины
+    if(event.target.hasAttribute('data-action'))
+    {
+        if(event.target.closest('.cart-wrapper'))
+        {
+            //Расчет общей стоимости товаров в корзине
+            calcCartPrice();
+        }
     }
     
 });

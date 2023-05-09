@@ -81,6 +81,9 @@ window.addEventListener('click', function(event)
 
         //Отображение статуса корзины(пустая либо полная)
         toggleCartStatus();
+
+        //Расчет общей стоимости товаров в корзине
+        calcCartPrice();
     }
 
     
