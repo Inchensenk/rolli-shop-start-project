@@ -3,12 +3,20 @@
 //Добавляем прослушку на всем окне
 window.addEventListener('click', function(event)
 {
+    //Глобальный счетчик для замыкания в if-ах
+    let counter;
 
-    //находим ближайшего родителя с классом .counter-wrapper (обертку счетчика)
-    const counterWrapper = event.target.closest('.counter-wrapper');
+    //Проверка на клик по кнопкам + или -
+    if(event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus')
+    {
+        //находим ближайшего родителя с классом .counter-wrapper (обертку счетчика)
+        const counterWrapper = event.target.closest('.counter-wrapper');
     
-    //находим в родителе элемент со счетчиком
-    const counter = counterWrapper.querySelector('[data-counter]');
+        //находим в родителе элемент со счетчиком
+        counter = counterWrapper.querySelector('[data-counter]');
+    }
+
+
 
     //Если нажатая кнопка '-'
     if(event.target.dataset.action === 'plus')
