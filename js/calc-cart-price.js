@@ -2,13 +2,13 @@
 
 function calcCartPrice()
 {
+    //Находим все элементы в корзине
     const cartItems = document.querySelectorAll('.cart-item');
-    console.log(cartItems);
+
+    let totalPrice = 0;
 
     cartItems.forEach(function(item)
     {
-        console.log(item);
-
         //Колличество позиции в корзине
         const amountEl = item.querySelector('[data-counter]');
         //Стоимость позиции
@@ -16,6 +16,8 @@ function calcCartPrice()
         //Стоимость позиции товара с учетом его колличества в корзине
         const currentPrice = parseInt(amountEl.innerText) * parseInt(priceEl.innerText);
 
-        console.log(currentPrice);
+        totalPrice +=currentPrice;
     });
+
+    console.log(totalPrice);
 }
