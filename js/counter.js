@@ -26,19 +26,19 @@ window.addEventListener('click', function(event)
     if(event.target.dataset.action === 'minus')
     {
 
-        //Если клик совершен по кнопке '-' которая находится в корзине
-        if(event.target.closest('.cart-wrapper'))
+        if(parseInt(counter.innerText)>1)
         {
+            --counter.innerText;
+        } 
+        //Иначе, если клик совершен по кнопке '-' которая находится в корзине
+        else if (event.target.closest('.cart-wrapper'))
+        {
+            //И колличество товара равно 1, (то при нажатии на - мы можем его удалить)
             if(parseInt(counter.innerText)===1)
             {
                 //Удаляем товар из корзины
                 event.target.closest('.cart-item').remove();
             }
-        }
-
-        if(parseInt(counter.innerText)>1)
-        {
-            --counter.innerText;
         }
 
     }
