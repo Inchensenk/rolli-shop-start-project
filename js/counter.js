@@ -16,20 +16,31 @@ window.addEventListener('click', function(event)
         counter = counterWrapper.querySelector('[data-counter]');
     }
 
-    //Если нажатая кнопка '-'
+    //Если нажатая кнопка '+'
     if(event.target.dataset.action === 'plus')
     {
         ++counter.innerText;
     }
 
-    //Если нажатая кнопка '+'
+    //Если нажатая кнопка '-'
     if(event.target.dataset.action === 'minus')
     {
+
+        //Если клик совершен по кнопке '-' которая находится в корзине
+        if(event.target.closest('.cart-wrapper'))
+        {
+            if(parseInt(counter.innerText)===1)
+            {
+                //Удаляем товар из корзины
+                event.target.closest('.cart-item').remove();
+            }
+        }
 
         if(parseInt(counter.innerText)>1)
         {
             --counter.innerText;
         }
+
     }
     
 });

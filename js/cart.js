@@ -37,7 +37,7 @@ window.addEventListener('click', function(event)
         else
         {
             //Если товара нет в корзине
-            
+
             //Собранные данные подставим в шаблон для товара в корзине
             const cartItemHTML =  `
             <div class="cart-item" data-id="${productInfo.id}">
@@ -72,6 +72,9 @@ window.addEventListener('click', function(event)
             //отобразить товар в корзине
             cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);//insertAdjacentElement вставляет кусок html внутрь элемента
         }
+
+        //сбрасываем счетчик на странице после добавления товара в корзину
+        card.querySelector('[data-counter]').innerText = '1';
 
     }
 
