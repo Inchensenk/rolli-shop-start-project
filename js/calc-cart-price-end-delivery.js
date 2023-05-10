@@ -1,6 +1,6 @@
 'use strict';
 
-function calcCartPrice()
+function calcCartPriceAndDelivery()
 {
 
     const cartWrapper = document.querySelector('.cart-wrapper');

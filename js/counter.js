@@ -43,7 +43,7 @@ window.addEventListener('click', function(event)
                 toggleCartStatus();
 
                 //Расчет общей стоимости товаров в корзине
-                calcCartPrice();
+                calcCartPriceAndDelivery();
             }
         }
 
@@ -55,7 +55,7 @@ window.addEventListener('click', function(event)
         if(event.target.closest('.cart-wrapper'))
         {
             //Расчет общей стоимости товаров в корзине
-            calcCartPrice();
+            calcCartPriceAndDelivery();
         }
     }
     

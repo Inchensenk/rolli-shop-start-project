@@ -83,7 +83,7 @@ window.addEventListener('click', function(event)
         toggleCartStatus();
 
         //Расчет общей стоимости товаров в корзине
-        calcCartPrice();
+        calcCartPriceAndDelivery();
     }
 
     
